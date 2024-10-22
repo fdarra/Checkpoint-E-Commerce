@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Style des boutons */
+.btn {
+    background-color: transparent;  /* Pas de fond */
+    border: none;                   /* Pas de bordure */
+    font-size: 18px;                /* Taille du texte */
+    padding: 10px 20px;             /* Espacement */
+    cursor: pointer;                /* Curseur en forme de main */
+    outline: none;                  /* Pas de contour quand cliqué */
+  }
+  
+  /* Style pour le bouton actif */
+  .btn.active {
+    text-decoration: underline;     /* Souligné quand actif */
+  }
+
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .background-image.active {
+    opacity: 1;
+  }
+
+  /* Panel CSS for the dropdown to open upwards */
+.dropdown-upwards .p-dropdown-panel {
+  bottom: 100% !important;  /* Push the dropdown above the button */
+  top: auto !important;     /* Remove default top alignment */
+  transform: translateY(-100%) !important;  /* Ensure it moves above */
+  z-index: 100 !important;  /* Make sure it's above other elements */
+  position: absolute !important;
 }
+  
